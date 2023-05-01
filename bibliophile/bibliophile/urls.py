@@ -16,7 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from website.views.author import AuthorListView, AuthorDetailView
+from website.views.book import BookListView, BookDetailView
+from website.views.genre import GenreListView
+from website.views.index import IndexView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", IndexView.as_view(), name="index"),
+    path("genres/", GenreListView.as_view(), name="genre-list"),
+    path("authors/", AuthorListView.as_view(), name="author-list"),
+    path("authors/<int:pk>/", AuthorDetailView.as_view(), name="author-detail"),
+    path("books/", BookListView.as_view(), name="book-list"),
+    path("books/<int:pk>/", BookDetailView.as_view(), name="book-detail"),
+    # path("genres/<int:genre_id>/", views.genre, name="genre"),
 ]

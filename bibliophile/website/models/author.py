@@ -7,7 +7,7 @@ class Author(models.Model):
     death_date = models.DateField("date of death", null=True, blank=True)
     comment = models.CharField(max_length=1000, null=True, blank=True)
     biography = models.CharField(
-        "short biography", max_length="5000", null=True, blank=True
+        "short biography", max_length=5000, null=True, blank=True
     )
 
     def __str__(self):

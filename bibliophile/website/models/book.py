@@ -1,6 +1,6 @@
 from django.db import models
 
-from bibliophile.website.models import Work
+from . import Work
 
 
 class Book(models.Model):
@@ -18,8 +18,8 @@ class Book(models.Model):
     pages_number = models.IntegerField("number of pages", null=True, blank=True)
     publishing_year = models.IntegerField("the year of publishing", null=True, blank=True)
     comment = models.CharField(max_length=1000, null=True, blank=True)
-    description = models.CharField(max_length="5000", null=True, blank=True)
-    translator = models.CharField(max_length="100", null=True, blank=True)
+    description = models.CharField(max_length=5000, null=True, blank=True)
+    translator = models.CharField(max_length=100, null=True, blank=True)
     works = models.ManyToManyField(Work)
     publisher = models.CharField("publishing house", max_length=200, null=True, blank=True)
 
