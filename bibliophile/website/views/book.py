@@ -1,3 +1,4 @@
+from django.db.models import Prefetch
 from django.utils import timezone
 from django.views.generic import DetailView
 from django.views.generic.list import ListView
@@ -20,8 +21,9 @@ class BookDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['related_works'] = Book.objects.filter(works__in=self.object.works.all()).all()  #.distinct()[:5]
-        print(f"{self.object.pk=}")
-        context['related_works'] = Work.objects.filter(book__in=[self.object.pk]).all()
+        work_objs = Work.objects.filter(book__in=[self.object.pk]).prefetch_related(
+            Prefetch('authors', to_attr='aftar')
+        ).all()
+        context['related_works'] = work_objs
         context["now"] = timezone.now()
         return context

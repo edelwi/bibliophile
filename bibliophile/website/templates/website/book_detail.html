@@ -52,8 +52,8 @@
         {% for item in related_works %}
         <tr>
           <th scope="row">{{ forloop.counter }}</th>
-          <td><a href="#">{{ item.title }}</a></td>
-          <td>{{ item.authors }}</td>
+          <td><a href="{% url 'work-detail' item.pk %}">{{ item.title }}</a></td>
+          <td>{{ item.aftar|join:", " }}</td>
           <td>{{ item.genre }}</td>
           <td>{{ item.comment }}</td>
           <td>{{ item.summary }}</td>
