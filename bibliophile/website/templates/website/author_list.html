@@ -21,8 +21,8 @@
     {# Each "contact" is a Contact model object. #}
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
-      <td><a href="{% url 'author-detail' author.pk %}">{{ author.name }}</a></td>
-      <td>{{ author.comment }}</td>
+      <td>{% if author.name %}<a href="{% url 'author-detail' author.pk %}">{{ author.name }}</a>{% endif %}</td>
+      <td>{% if author.comment %}{{ author.comment }}{% endif %}</td>
     </tr>
     {% endfor %}
 

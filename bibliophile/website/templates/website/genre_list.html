@@ -22,7 +22,7 @@
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
       <td><a href="{% url 'work-genre-list' genre.pk %}">{{ genre.name }}</a></td>
-      <td>{{ genre.comment }}</td>
+      <td>{% if genre.comment %}{{ genre.comment }}{% endif %}</td>
     </tr>
     {% endfor %}
 

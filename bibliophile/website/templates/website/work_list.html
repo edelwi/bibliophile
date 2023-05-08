@@ -25,9 +25,9 @@
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
       <td><a href="{% url 'work-detail' item.pk %}">{{ item.title }}</a></td>
-      <td>{{item.aftar|join:", " }}</td>
-      <td>{{ item.publication_date}}</td>
-      <td>{{ item.genre}}</td>
+      <td>{% if item.aftar %}{{item.aftar|join:", " }}{% endif %}</td>
+      <td>{% if item.publication_date %}{{ item.publication_date}}{% endif %}</td>
+      <td>{% if item.genre %}{{ item.genre}}{% endif %}</td>
 
     </tr>
     {% endfor %}
