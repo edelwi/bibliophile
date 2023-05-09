@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block head %}
 {% endblock %}
 
@@ -10,7 +10,7 @@
 
 <div class="card">
   <div class="card-header">
-    Work
+    {% trans 'Work' %}
   </div>
   <div class="card-body">
     <h5 class="card-title">{{object.title}}</h5>
@@ -20,19 +20,19 @@
     <hr/>
 
     {% if object.publication_date %}
-      <p><span>Published: </span>{{object.publication_date}}</p>
+      <p><span>{% trans 'Published' %}: </span>{{object.publication_date}}</p>
     {% endif %}
 
     {% if object.genre %}
-      <p><span>Genre: </span>{{object.genre}}</p>
+      <p><span>{% trans 'Genre' %}: </span>{{object.genre}}</p>
     {% endif %}
 
     {% if object.comment %}
-      <p><span>Comment: </span>{{object.comment}}</p>
+      <p><span>{% trans 'Comment' %}: </span>{{object.comment}}</p>
     {% endif %}
 
     {% if object.summary %}
-      <p><span>Summary: </span>{{object.summary}}</p>
+      <p><span>{% trans 'Summary' %}: </span>{{object.summary}}</p>
     {% endif %}
   </div>
 
@@ -40,7 +40,7 @@
 
     <a href="{{ back_url }}" class="card-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
       <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
-      </svg> back</a>
+      </svg> {% trans 'back' %}</a>
   </div>
 </div>
 <br/>

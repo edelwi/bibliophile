@@ -1,5 +1,5 @@
 {% extends "root.html" %}
-
+{% load i18n %}
 {% block title %}
     {% if title %}{{ title }} - bibliophile {% else %}Welcome to bibliophile.example.com{% endif %}
 {% endblock %}
@@ -19,27 +19,27 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'genre-list' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-move" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10zM.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708l-2-2zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8z"/>
-            </svg> Genres
+            </svg> {% trans 'Genres' %}
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'author-list' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
             <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
-            </svg> Authors
+            </svg> {% trans 'Authors' %}
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'book-list' %}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookshelf" viewBox="0 0 16 16">
             <path d="M2.5 0a.5.5 0 0 1 .5.5V2h10V.5a.5.5 0 0 1 1 0v15a.5.5 0 0 1-1 0V15H3v.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zM3 14h10v-3H3v3zm0-4h10V7H3v3zm0-4h10V3H3v3z"/>
-            </svg> Books
+            </svg> {% trans 'Books' %}
           </a>
         </li>
 
       </ul>
       <form class="d-flex ms-auto" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="{% trans 'Search' %}" aria-label="{% trans 'Search' %}">
+        <button class="btn btn-outline-success" type="submit">{% trans 'Search' %}</button>
       </form>
 <!--        <div class="vr ms-auto"></div>-->
         <ul class="navbar-nav me-right mb-2 mb-lg-0 ms-auto">
@@ -49,7 +49,7 @@
                 <a class="nav-link" href="{% url 'admin:index' %}">
                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-magic" viewBox="0 0 16 16">
                     <path d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0v1.829Zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707L14 2.707ZM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707L7.293 4Zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1h1.829Zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1h1.829ZM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707L13.293 10ZM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0v1.829Zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0L8.354 9.06Z"/>
-                    </svg> Adminka
+                    </svg> {% trans 'Adminka' %}
                 </a>
             </li>
             <li class="nav-item">
@@ -57,7 +57,7 @@
                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                    </svg> Login
+                    </svg> {% trans 'Login' %}
                 </a>
             </li>
 
@@ -85,7 +85,7 @@
     <footer class="mt-auto">
     <nav class="navbar navbar-light bg-light">
         <div class="container">
-            <h4 class="navbar-brand font-weith-bold">bibliophile demo site</h4>
+            <h4 class="navbar-brand font-weith-bold">{% trans 'bibliophile demo site' %}</h4>
              {#<h6 class="navbar-brand">Contact Us:</h6>#}
                 <h6 class="navbar-brand"><i class="fa fa-phone" aria-hidden="true"></i> +7 (999) 999-99-99</h6>
             <h6 class="navbar-brand"><i class="fa fa-envelope-o" aria-hidden="true"></i>

@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-09 17:07+0300\n"
+"PO-Revision-Date: 2023-05-09 17:09+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: templates/base.html:22 templates/website/genre_list.html:9
+msgid "Genres"
+msgstr "Жанры"
+
+#: templates/base.html:28 templates/website/author_list.html:9
+#: templates/website/book_detail.html:45 templates/website/work_list.html:16
+msgid "Authors"
+msgstr "Авторы"
+
+#: templates/base.html:35 templates/website/book_list.html:9
+msgid "Books"
+msgstr "Книги"
+
+#: templates/base.html:41 templates/base.html:42
+msgid "Search"
+msgstr "Поиск"
+
+#: templates/base.html:52
+msgid "Adminka"
+msgstr "Админка"
+
+#: templates/base.html:60
+msgid "Login"
+msgstr "Войти"
+
+#: templates/base.html:88
+msgid "bibliophile demo site"
+msgstr "демонстрационный сайт библиофила"
+
+#: templates/index.html:4
+msgid "Hi"
+msgstr "Привет"
+
+#: templates/website/author_detail.html:13
+msgid "Author"
+msgstr "Автор"
+
+#: templates/website/author_detail.html:19
+msgid "Birth date"
+msgstr "Дата рождения"
+
+#: templates/website/author_detail.html:23
+msgid "Death date"
+msgstr "Дата смерти"
+
+#: templates/website/author_detail.html:27
+#: templates/website/author_list.html:16 templates/website/book_detail.html:21
+#: templates/website/book_detail.html:47 templates/website/genre_list.html:16
+#: templates/website/work_detail.html:31
+msgid "Comment"
+msgstr "Комментарий"
+
+#: templates/website/author_detail.html:31
+msgid "Biography"
+msgstr "Биография"
+
+#: templates/website/author_detail.html:36
+#: templates/website/book_detail.html:73 templates/website/work_detail.html:43
+msgid "back"
+msgstr "назад"
+
+#: templates/website/author_detail.html:39
+msgid "Go to works"
+msgstr "К произведениям"
+
+#: templates/website/author_list.html:14 templates/website/book_detail.html:43
+#: templates/website/book_list.html:14 templates/website/genre_list.html:14
+#: templates/website/work_list.html:14
+msgid "#"
+msgstr "№"
+
+#: templates/website/author_list.html:15
+msgid "Name"
+msgstr "Имя"
+
+#: templates/website/author_list.html:38 templates/website/book_list.html:49
+#: templates/website/genre_list.html:39 templates/website/work_list.html:45
+msgid "first"
+msgstr "первый"
+
+#: templates/website/author_list.html:39 templates/website/book_list.html:50
+#: templates/website/genre_list.html:40 templates/website/work_list.html:46
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: templates/website/author_list.html:42 templates/website/book_list.html:53
+#: templates/website/genre_list.html:43 templates/website/work_list.html:49
+msgid "Page"
+msgstr "Страница"
+
+#: templates/website/author_list.html:42 templates/website/book_list.html:53
+#: templates/website/genre_list.html:43 templates/website/work_list.html:49
+msgid "of"
+msgstr "из"
+
+#: templates/website/author_list.html:47 templates/website/book_list.html:58
+#: templates/website/genre_list.html:48 templates/website/work_list.html:54
+msgid "Next"
+msgstr "Следующий"
+
+#: templates/website/author_list.html:48 templates/website/book_list.html:59
+#: templates/website/genre_list.html:49 templates/website/work_list.html:55
+msgid "last"
+msgstr "последний"
+
+#: templates/website/book_detail.html:13
+msgid "Book"
+msgstr "Книга"
+
+#: templates/website/book_detail.html:25
+msgid "Description"
+msgstr "Описание"
+
+#: templates/website/book_detail.html:30
+msgid "ISBN"
+msgstr ""
+
+#: templates/website/book_detail.html:31 templates/website/book_list.html:17
+msgid "Type"
+msgstr "Тип"
+
+#: templates/website/book_detail.html:32 templates/website/book_list.html:18
+msgid "Pages"
+msgstr "Страниц"
+
+#: templates/website/book_detail.html:33
+msgid "Year of publishing"
+msgstr "Год публикации"
+
+#: templates/website/book_detail.html:34 templates/website/book_list.html:20
+msgid "Publisher"
+msgstr "Издатель"
+
+#: templates/website/book_detail.html:36
+msgid "Translator"
+msgstr "Переводчик"
+
+#: templates/website/book_detail.html:39
+msgid "Works"
+msgstr "Произведения"
+
+#: templates/website/book_detail.html:44 templates/website/book_list.html:15
+#: templates/website/work_list.html:15
+msgid "Title"
+msgstr "Заголовок"
+
+#: templates/website/book_detail.html:46 templates/website/genre_list.html:15
+#: templates/website/work_detail.html:27 templates/website/work_list.html:18
+msgid "Genre"
+msgstr "Жанр"
+
+#: templates/website/book_detail.html:48 templates/website/work_detail.html:35
+msgid "Summary"
+msgstr "Краткое описание"
+
+#: templates/website/book_list.html:16
+msgid "Subtitle"
+msgstr "Подзаголовок"
+
+#: templates/website/book_list.html:19
+msgid "Year"
+msgstr "Год"
+
+#: templates/website/work_detail.html:13 templates/website/work_list.html:9
+msgid "Work"
+msgstr "Произведение"
+
+#: templates/website/work_detail.html:23 templates/website/work_list.html:17
+msgid "Published"
+msgstr "Опубликовано"

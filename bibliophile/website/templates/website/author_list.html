@@ -1,24 +1,23 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block head %}
 {% endblock %}
 
 
 {% block app_content %}
 
-<h1>Authors</h1>
+<h1>{% trans 'Authors' %}</h1>
 
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Comment</th>
+      <th scope="col">{% trans '#' %}</th>
+      <th scope="col">{% trans 'Name' %}</th>
+      <th scope="col">{% trans 'Comment' %}</th>
     </tr>
   </thead>
     <tbody>
     {% for author in page_obj %}
-    {# Each "contact" is a Contact model object. #}
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
       <td>{% if author.name %}<a href="{% url 'author-detail' author.pk %}">{{ author.name }}</a>{% endif %}</td>
@@ -36,17 +35,17 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
       {% if page_obj.has_previous %}
-            <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="?page=1">&laquo; {% trans 'first' %}</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a></li>
         {% endif %}
 
-        <li ><a class="page-link" href="#">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a></li>
+        <li ><a class="page-link" href="#">{% trans 'Page' %} {{ page_obj.number }} {% trans 'of' %} {{ page_obj.paginator.num_pages }}</a></li>
 
 
 
       {% if page_obj.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{% trans 'last' %} &raquo;</a></li>
         {% endif %}
   </ul>
 </nav>

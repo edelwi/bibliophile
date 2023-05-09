@@ -1,23 +1,23 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block head %}
 {% endblock %}
 
 
 {% block app_content %}
 
-<h1>Books</h1>
+<h1>{% trans 'Books' %}</h1>
 
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Title</th>
-      <th scope="col">Subtitle</th>
-      <th scope="col">Type</th>
-      <th scope="col">Pages</th>
-      <th scope="col">Year</th>
-      <th scope="col">Publisher</th>
+      <th scope="col">{% trans '#' %}</th>
+      <th scope="col">{% trans 'Title' %}</th>
+      <th scope="col">{% trans 'Subtitle' %}</th>
+      <th scope="col">{% trans 'Type' %}</th>
+      <th scope="col">{% trans 'Pages' %}</th>
+      <th scope="col">{% trans 'Year' %}</th>
+      <th scope="col">{% trans 'Publisher' %}</th>
 
     </tr>
   </thead>
@@ -46,17 +46,17 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
       {% if page_obj.has_previous %}
-            <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="?page=1">&laquo; {% trans 'first' %}</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a></li>
         {% endif %}
 
-        <li ><a class="page-link" href="#">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a></li>
+        <li ><a class="page-link" href="#">{% trans 'Page' %} {{ page_obj.number }} {% trans 'of' %} {{ page_obj.paginator.num_pages }}</a></li>
 
 
 
       {% if page_obj.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{% trans 'last' %} &raquo;</a></li>
         {% endif %}
   </ul>
 </nav>

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block head %}
 {% endblock %}
 
@@ -10,7 +10,7 @@
 
 <div class="card">
   <div class="card-header">
-    Book
+    {% trans 'Book' %}
   </div>
   <div class="card-body">
     <h5 class="card-title">{{object.title}}</h5>
@@ -18,34 +18,34 @@
     <hr/>
 
     {% if object.comment %}
-      <p><span>Comment: </span>{{object.comment}}</p>
+      <p><span>{% trans 'Comment' %}: </span>{{object.comment}}</p>
     {% endif %}
 
     {% if object.description %}
-      <p><span>Description: </span>{{object.description}}</p>
+      <p><span>{% trans 'Description' %}: </span>{{object.description}}</p>
     {% endif %}
 
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><span>ISBN: </span>{% if object.isbn %}{{object.isbn}}{% endif %}</li>
-    <li class="list-group-item"><span>Type: </span>{% if object.media_type %}{{object.media_type}}{% endif %}</li>
-    <li class="list-group-item"><span>Pages: </span>{% if object.pages_number %}{{object.pages_number}}{% endif %}</li>
-    <li class="list-group-item"><span>Year of publishing: </span>{% if object.publishing_year %}{{object.publishing_year}}{% endif %}</li>
-    <li class="list-group-item"><span>Publisher: </span>{% if object.publisher %}{{object.publisher}}{% endif %}</li>
+    <li class="list-group-item"><span>{% trans 'ISBN' %}: </span>{% if object.isbn %}{{object.isbn}}{% endif %}</li>
+    <li class="list-group-item"><span>{% trans 'Type' %}: </span>{% if object.media_type %}{{object.media_type}}{% endif %}</li>
+    <li class="list-group-item"><span>{% trans 'Pages' %}: </span>{% if object.pages_number %}{{object.pages_number}}{% endif %}</li>
+    <li class="list-group-item"><span>{% trans 'Year of publishing' %}: </span>{% if object.publishing_year %}{{object.publishing_year}}{% endif %}</li>
+    <li class="list-group-item"><span>{% trans 'Publisher' %}: </span>{% if object.publisher %}{{object.publisher}}{% endif %}</li>
     {% if object.translator %}
-      <li class="list-group-item"><span>Translator: </span>{{object.translator}}</li>
+      <li class="list-group-item"><span>{% trans 'Translator' %}: </span>{{object.translator}}</li>
     {% endif %}
     <div class="container">
-    <h5>Works</h5>
+    <h5>{% trans 'Works' %}</h5>
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">Authors</th>
-          <th scope="col">Genre</th>
-          <th scope="col">Comment</th>
-          <th scope="col">Summary</th>
+          <th scope="col">{% trans '#' %}</th>
+          <th scope="col">{% trans 'Title' %}</th>
+          <th scope="col">{% trans 'Authors' %}</th>
+          <th scope="col">{% trans 'Genre' %}</th>
+          <th scope="col">{% trans 'Comment' %}</th>
+          <th scope="col">{% trans 'Summary' %}</th>
         </tr>
       </thead>
         <tbody>
@@ -70,7 +70,7 @@
 
     <a href="{% url 'book-list' %}" class="card-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
       <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
-      </svg> back</a>
+      </svg> {% trans 'back' %}</a>
   </div>
 </div>
 <br/>
