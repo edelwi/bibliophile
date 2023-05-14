@@ -34,5 +34,4 @@ urlpatterns = [
     path("works/author/<int:pk>/", WorkAuthorListView.as_view(), name="work-author-list"),
     path("works/genre/<int:pk>/", WorkGenreListView.as_view(), name="work-genre-list"),
     path("works/<int:pk>/", WorkDetailView.as_view(), name="work-detail"),
-    # path("genres/<int:genre_id>/", views.genre, name="genre"),
 ]

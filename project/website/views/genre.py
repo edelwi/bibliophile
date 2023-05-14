@@ -7,6 +7,7 @@ from ..models import Genre
 class GenreListView(ListView):
     model = Genre
     paginate_by = 25  # if pagination is desired
+    ordering = ['name']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

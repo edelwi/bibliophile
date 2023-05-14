@@ -9,6 +9,7 @@ from ..models import Book, Work
 class BookListView(ListView):
     model = Book
     paginate_by = 25  # if pagination is desired
+    ordering = ['title']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

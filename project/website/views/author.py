@@ -8,6 +8,7 @@ from ..models import Author
 class AuthorListView(ListView):
     model = Author
     paginate_by = 25  # if pagination is desired
+    ordering = ['name']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

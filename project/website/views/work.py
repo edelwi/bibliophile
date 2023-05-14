@@ -6,20 +6,22 @@ from django.views.generic.list import ListView
 from ..models import Work, Author
 
 
-class WorkListView(ListView):
-    model = Work
-    paginate_by = 25  # if pagination is desired
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["now"] = timezone.now()
-        return context
+# class WorkListView(ListView):
+#     model = Work
+#     paginate_by = 25  # if pagination is desired
+#     ordering = ['title']
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["now"] = timezone.now()
+#         return context
 
 
 class WorkGenreListView(ListView):
     model = Work
     paginate_by = 25  # if pagination is desired
     template_name = 'work_list.html'
+    ordering = ['title']
 
     def get_queryset(self, **kwargs):
         qs = super().get_queryset(**kwargs)
@@ -36,6 +38,7 @@ class WorkAuthorListView(ListView):
     model = Work
     paginate_by = 25  # if pagination is desired
     template_name = 'work_list.html'
+    ordering = ['title']
 
     def get_queryset(self, **kwargs):
         qs = super().get_queryset(**kwargs)
@@ -52,5 +55,5 @@ class WorkDetailView(DetailView):
         authors_objs = Author.objects.filter(work__in=[self.object.pk]).all()
         context['related_authors'] = authors_objs
         context["now"] = timezone.now()
-        context['back_url'] = self.request.META['HTTP_REFERER']
+        context['back_url'] = self.request.META.get('HTTP_REFERER', "none")
         return context
