@@ -1,7 +1,32 @@
 {% extends "base.html" %}
 {% block app_content %}
 {% load i18n %}
-<h1>{% trans 'Hi' %}</h1>
+<h1>{% trans 'Welcome' %}</h1>
 
+<div class="card text-center">
+  <div class="card-header">
+    {% trans 'Statistics' %}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{% trans 'In our library' %}</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{% trans 'Authors' %}: <span class="badge text-bg-primary">
+            <a class="nav-link" href="{% url 'author-list' %}">{{ authors_count }}</a>
+          </span>
+        </li>
+        <li class="list-group-item">{% trans 'Works' %}: <span class="badge text-bg-secondary">
+            {{ works_count }}
+          </span>
+        </li>
+        <li class="list-group-item">{% trans 'Books' %}: <span class="badge text-bg-primary">
+            <a class="nav-link" href="{% url 'book-list' %}">{{ books_count }}</a>
+          </span>
+        </li>
+      </ul>
+  </div>
+  <div class="card-footer text-body-secondary">
+    {% trans 'updated' %}: {{ updated|date:"SHORT_DATETIME_FORMAT" }}
+  </div>
+</div>
 
 {% endblock %}

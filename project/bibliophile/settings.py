@@ -77,6 +77,9 @@ TEMPLATES = [
     },
 ]
 
+LOCALE_PATHS = (
+    BASE_DIR / "website" / "locale", )
+
 WSGI_APPLICATION = "bibliophile.wsgi.application"
 
 

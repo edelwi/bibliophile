@@ -1,3 +1,5 @@
+import urllib.parse
+
 from django.test import TestCase
 from django.urls import reverse
 
@@ -88,7 +90,6 @@ class WorkViewTests(TestCase):
 
 
 class BookViewTests(TestCase):
-
     def test_no_books(self):
         response = self.client.get(reverse("book-list"))
         self.assertEqual(response.status_code, 200)
@@ -107,8 +108,44 @@ class BookViewTests(TestCase):
 
     def test_book_detail(self):
         book = create_book()
-        response = self.client.get(
-            reverse("book-detail", kwargs={"pk": book.pk})
-        )
+        response = self.client.get(reverse("book-detail", kwargs={"pk": book.pk}))
         self.assertContains(response, book.title)
         self.assertContains(response, book.media_type)
+
+    def test_search_book(self):
+        book = create_book()
+        response = self.client.get(
+            build_url("book-search-results", get={"q": book.title[5:10]})
+        )
+        self.assertQuerySetEqual(
+            response.context["object_list"],
+            [
+                book,
+            ],
+        )
+
+
+class IndexViewTests(TestCase):
+    def test_index_no_books(self):
+        response = self.client.get(reverse("index"))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context["authors_count"], 0)
+        self.assertEqual(response.context["works_count"], 0)
+        self.assertEqual(response.context["books_count"], 0)
+
+    def test_index_with_books(self):
+        create_book()
+        response = self.client.get(reverse("index"))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context["authors_count"], 1)
+        self.assertEqual(response.context["works_count"], 1)
+        self.assertEqual(response.context["books_count"], 1)
+
+
+def build_url(*args, **kwargs):
+    # thanks to https://stackoverflow.com/questions/9585491/how-do-i-pass-get-parameters-using-django-urlresolvers-reverse
+    get = kwargs.pop("get", {})
+    url = reverse(*args, **kwargs)
+    if get:
+        url += "?" + urllib.parse.urlencode(get)
+    return url

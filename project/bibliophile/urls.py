@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from website.views.author import AuthorListView, AuthorDetailView
-from website.views.book import BookListView, BookDetailView
+from website.views.book import BookListView, BookDetailView, BookSearchResultsView
 from website.views.genre import GenreListView
 from website.views.index import IndexView
 from website.views.work import WorkDetailView, WorkGenreListView, WorkAuthorListView
@@ -31,7 +31,10 @@ urlpatterns = [
     path("authors/<int:pk>/", AuthorDetailView.as_view(), name="author-detail"),
     path("books/", BookListView.as_view(), name="book-list"),
     path("books/<int:pk>/", BookDetailView.as_view(), name="book-detail"),
-    path("works/author/<int:pk>/", WorkAuthorListView.as_view(), name="work-author-list"),
+    path("search/", BookSearchResultsView.as_view(), name="book-search-results"),
+    path(
+        "works/author/<int:pk>/", WorkAuthorListView.as_view(), name="work-author-list"
+    ),
     path("works/genre/<int:pk>/", WorkGenreListView.as_view(), name="work-genre-list"),
     path("works/<int:pk>/", WorkDetailView.as_view(), name="work-detail"),
 ]
