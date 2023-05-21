@@ -1,58 +1,58 @@
 [
-  {
+{
     "model": "website.genre",
     "pk": 1,
     "fields": {
-      "name": "поэзия",
-      "comment": "стихи, поэмы"
+        "name": "поэзия",
+        "comment": "стихи, поэмы"
     }
-  },
-  {
+},
+{
     "model": "website.genre",
     "pk": 2,
     "fields": {
-      "name": "фантастика",
-      "comment": ""
+        "name": "фантастика",
+        "comment": ""
     }
-  },
-  {
+},
+{
     "model": "website.genre",
     "pk": 3,
     "fields": {
-      "name": "беллетристика",
-      "comment": ""
+        "name": "беллетристика",
+        "comment": ""
     }
-  },
-  {
+},
+{
     "model": "website.genre",
     "pk": 4,
     "fields": {
-      "name": "психология",
-      "comment": ""
+        "name": "психология",
+        "comment": ""
     }
-  },
-  {
+},
+{
     "model": "website.genre",
     "pk": 5,
     "fields": {
-      "name": "компьютерная литература",
-      "comment": ""
+        "name": "иностранные языки",
+        "comment": ""
     }
-  },
-  {
+},
+{
     "model": "website.genre",
     "pk": 6,
     "fields": {
-      "name": "математика",
-      "comment": ""
+        "name": "математика",
+        "comment": ""
     }
-  },
-  {
+},
+{
     "model": "website.genre",
-    "pk": 5,
+    "pk": 7,
     "fields": {
-      "name": "иностранные языки",
-      "comment": ""
+        "name": "Computer science",
+        "comment": null
     }
-  }
+}
 ]

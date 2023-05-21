@@ -1,0 +1,220 @@
+[
+{
+    "model": "website.author",
+    "pk": 1,
+    "fields": {
+        "name": "Роберт Мартин",
+        "birth_date": null,
+        "death_date": null,
+        "comment": "дядюшка Боб",
+        "biography": null
+    }
+},
+{
+    "model": "website.author",
+    "pk": 2,
+    "fields": {
+        "name": "Иван Тургенев",
+        "birth_date": "1818-10-28",
+        "death_date": "1883-09-22",
+        "comment": "Один из классиков русской литературы, внёсших наиболее значительный вклад в её развитие во второй половине XIX века",
+        "biography": null
+    }
+},
+{
+    "model": "website.author",
+    "pk": 3,
+    "fields": {
+        "name": "Sam Newman",
+        "birth_date": null,
+        "death_date": null,
+        "comment": null,
+        "biography": null
+    }
+},
+{
+    "model": "website.genre",
+    "pk": 1,
+    "fields": {
+        "name": "поэзия",
+        "comment": "стихи, поэмы"
+    }
+},
+{
+    "model": "website.genre",
+    "pk": 2,
+    "fields": {
+        "name": "фантастика",
+        "comment": ""
+    }
+},
+{
+    "model": "website.genre",
+    "pk": 3,
+    "fields": {
+        "name": "беллетристика",
+        "comment": ""
+    }
+},
+{
+    "model": "website.genre",
+    "pk": 4,
+    "fields": {
+        "name": "психология",
+        "comment": ""
+    }
+},
+{
+    "model": "website.genre",
+    "pk": 5,
+    "fields": {
+        "name": "иностранные языки",
+        "comment": ""
+    }
+},
+{
+    "model": "website.genre",
+    "pk": 6,
+    "fields": {
+        "name": "математика",
+        "comment": ""
+    }
+},
+{
+    "model": "website.genre",
+    "pk": 7,
+    "fields": {
+        "name": "Computer science",
+        "comment": null
+    }
+},
+{
+    "model": "website.work",
+    "pk": 1,
+    "fields": {
+        "title": "Чистая архитектура. Искусство разработки программного обеспечения",
+        "publication_date": "2022-12-14",
+        "genre": 7,
+        "comment": "Оставляет больше вопросов, чем даёт ответов.",
+        "summary": "Роберт Мартин даёт прямые и лаконичные ответы на ключевые вопросы архитектуры и дизайна ПО.",
+        "authors": [
+            1
+        ]
+    }
+},
+{
+    "model": "website.work",
+    "pk": 2,
+    "fields": {
+        "title": "Ася",
+        "publication_date": null,
+        "genre": 3,
+        "comment": null,
+        "summary": null,
+        "authors": [
+            2
+        ]
+    }
+},
+{
+    "model": "website.work",
+    "pk": 3,
+    "fields": {
+        "title": "Первая любовь",
+        "publication_date": null,
+        "genre": 3,
+        "comment": null,
+        "summary": null,
+        "authors": [
+            2
+        ]
+    }
+},
+{
+    "model": "website.work",
+    "pk": 4,
+    "fields": {
+        "title": "Вешние воды",
+        "publication_date": null,
+        "genre": 3,
+        "comment": null,
+        "summary": null,
+        "authors": [
+            2
+        ]
+    }
+},
+{
+    "model": "website.work",
+    "pk": 5,
+    "fields": {
+        "title": "Building Microservices",
+        "publication_date": "2021-08-19",
+        "genre": 7,
+        "comment": null,
+        "summary": null,
+        "authors": [
+            3
+        ]
+    }
+},
+{
+    "model": "website.book",
+    "pk": 1,
+    "fields": {
+        "title": "Чистая архитектура",
+        "subtitle": "Искусство разработки программного обеспечения",
+        "isbn": "978-5-4461-0772-8",
+        "media_type": "P",
+        "pages_number": 350,
+        "publishing_year": 2022,
+        "comment": "Жёлтенькая",
+        "description": "про архитектуру",
+        "translator": "Киселев А.",
+        "publisher": "Питер",
+        "works": [
+            1
+        ]
+    }
+},
+{
+    "model": "website.book",
+    "pk": 2,
+    "fields": {
+        "title": "Первая любовь",
+        "subtitle": null,
+        "isbn": "978-5-08-005655-0",
+        "media_type": "P",
+        "pages_number": 320,
+        "publishing_year": 2016,
+        "comment": null,
+        "description": null,
+        "translator": null,
+        "publisher": "Детская литература",
+        "works": [
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "website.book",
+    "pk": 3,
+    "fields": {
+        "title": "Building Microservices",
+        "subtitle": "Designing Fine-Grained Systems",
+        "isbn": "978-1-492-03402-5",
+        "media_type": "E",
+        "pages_number": 586,
+        "publishing_year": 2021,
+        "comment": "SECOND EDITION",
+        "description": null,
+        "translator": null,
+        "publisher": "O’Reilly",
+        "works": [
+            5
+        ]
+    }
+}
+]
