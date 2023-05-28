@@ -1,0 +1,6 @@
+.github
+.ruff_cache
+project/.coverage
+project/htmlcov
+project/db.sqlite3
+.coverage

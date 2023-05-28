@@ -22,13 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY') or secrets.token_urlsafe(32)
+SECRET_KEY = os.getenv("SECRET_KEY") or secrets.token_urlsafe(32)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG') or False
+DEBUG = os.getenv("DEBUG") or False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS") or ["*"]
 
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS") or ["http://localhost:1339", "http://*"]
 
 # Application definition
 
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
 ]
 
 MIDDLEWARE = [
@@ -62,7 +62,6 @@ TEMPLATES = [
         # "BACKEND": "django.forms.renderers.Jinja2",
         "DIRS": [
             BASE_DIR / "website" / "templates",
-
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -77,8 +76,9 @@ TEMPLATES = [
     },
 ]
 
-LOCALE_PATHS = (
-    BASE_DIR / "website" / "locale", )
+LOCALE_PATHS = (BASE_DIR / "website" / "locale",)
+
+STATIC_ROOT = BASE_DIR / "static"
 
 WSGI_APPLICATION = "bibliophile.wsgi.application"
 
@@ -86,17 +86,33 @@ WSGI_APPLICATION = "bibliophile.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+ENGINE = os.getenv("DEBUG")
+if ENGINE and os.getenv("DEBUG").endswith("postgresql"):
+    DATABASES = {
+        "default": {
+            "ENGINE": ENGINE,
+            "NAME": os.getenv("DB_NAME") or "bibliophile_db",
+            "USER": os.getenv("POSTGRES_USER") or "bibliophile_user",
+            "PASSWORD": os.getenv("POSTGRES_PASSWORD") or "1234567890=",
+            "HOST": os.getenv("DB_HOST") or "localhost",
+            "PORT": os.getenv("DB_PORT") or "5432",
+        }
     }
-}
-if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
-    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+
+if (
+    "test" in sys.argv or "test_coverage" in sys.argv
+):  # Covers regular testing and django-coverage
+    DATABASES["default"]["ENGINE"] = "django.db.backends.sqlite3"
     # DATABASES['default']['NAME'] = BASE_DIR / "test_db.sqlite3"
-    if '--keepdb' in sys.argv:
-        DATABASES['default']['TEST']['NAME'] = BASE_DIR / "test_db.sqlite3"
+    if "--keepdb" in sys.argv:
+        DATABASES["default"]["TEST"]["NAME"] = BASE_DIR / "test_db.sqlite3"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -123,8 +139,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = "en-us"
 # LANGUAGE_CODE = "ru"
 LANGUAGES = (
-    ('en-us', _('English')),
-    ('ru', _('Russian')),
+    ("en-us", _("English")),
+    ("ru", _("Russian")),
 )
 TIME_ZONE = "UTC"
 
