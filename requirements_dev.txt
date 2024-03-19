@@ -1,6 +1,6 @@
 asgiref==3.6.0
 coverage==7.2.5
-Django==4.2.10
+Django==4.2.11
 iniconfig==2.0.0
 MarkupSafe==2.1.2
 packaging==23.1
