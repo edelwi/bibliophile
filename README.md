@@ -4,9 +4,7 @@
 
 [MIT License](LICENSE.txt)
 
-This is a simple django application for storing information about books in a home library.
-
-The main reason for creating this app was to restore my django skills.
+A lightweight Django application demonstrating common patterns for building a small library management system.
 
 ## How to install and run (to play with django internal server)
 
